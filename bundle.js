@@ -53,7 +53,8 @@ input,select,textarea{font-family:inherit;font-size:15px;color:var(--ink)}
 
 /* layout */
 .body{flex:1;overflow-y:auto;padding-bottom:84px}
-.view{padding:14px 16px 40px;display:flex;flex-direction:column;gap:12px;position:relative;animation:viewIn .16s ease-out both}
+.view{padding:14px 16px 40px;display:flex;flex-direction:column;gap:12px;position:relative}
+.view>*:not(.fab){animation:viewIn .16s ease-out both}
 @keyframes viewIn{from{opacity:0}to{opacity:1}}
 .lbl{font-size:11.5px;font-weight:800;letter-spacing:.16em;color:var(--dim)}
 .lbl.light{color:rgba(255,255,255,.85)}
