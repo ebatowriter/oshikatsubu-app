@@ -333,11 +333,11 @@ textarea.input{font-size:16px}
 .rankHead b{font-size:14.5px;letter-spacing:.02em}
 .rankHead span{font-size:10.5px;color:var(--dim);font-weight:800}
 .gGrid .gCard{position:relative}
-.gSymImg{width:48px;height:48px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:2px solid rgba(255,255,255,.75)}
+.gSymImg{width:58px;height:58px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:3px solid #fff;box-shadow:0 0 0 2px rgba(25,25,33,.22),0 2px 6px rgba(25,25,33,.18)}
 .gSymImg img{width:100%;height:100%;object-fit:cover}
-.markImg{width:27px;height:27px;border-radius:8px;overflow:hidden;display:flex;background:#fff}
+.markImg{width:28px;height:28px;border-radius:50%;overflow:hidden;display:flex;background:#fff;border:1.5px solid #fff;box-shadow:0 0 0 1.5px rgba(25,25,33,.28)}
 .markImg img{width:100%;height:100%;object-fit:cover}
-.gIconEdit{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:9px;background:rgba(255,255,255,.94);border:1.5px solid rgba(25,25,33,.28);display:flex;align-items:center;justify-content:center;color:#55525e;cursor:pointer}
+.gIconEdit{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.94);border:1.5px solid rgba(25,25,33,.28);display:flex;align-items:center;justify-content:center;color:#55525e;cursor:pointer}
 .gIconEdit input{display:none}
 .rankList{display:flex;flex-direction:column;gap:6px}
 .rankRow{--rc:#9AA0AE;display:flex;align-items:center;flex-wrap:wrap;gap:9px;border:1.5px solid #EFEDE6;border-radius:11px;padding:9px 12px;background:#fff;font-size:13px;color:var(--dim);animation:rkIn .35s ease-out both}
