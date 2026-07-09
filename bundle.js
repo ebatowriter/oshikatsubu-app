@@ -667,7 +667,7 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .chekiBigPhoto{position:relative;display:block;width:100%;padding-top:126.087%;height:0;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#F6F1EA,#fff)}
 .chekiBigPhoto .talkPhoto{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;min-height:0;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
 .chekiBigPhoto img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
-.chekiPh.bigPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:900;color:#D8CFE4;opacity:.75}}
+.chekiPh.bigPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:900;color:#D8CFE4;opacity:.75}
 .chekiSeal.bigSeal{width:28px;height:28px;top:8px;right:8px}
 .chekiBigFoot{padding:10px 4px 14px;display:flex;flex-direction:column;gap:3px}
 .chekiViewerBtns{display:flex;gap:10px}
