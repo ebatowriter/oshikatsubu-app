@@ -634,9 +634,9 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .floaty{animation:floaty 3.4s ease-in-out infinite alternate;display:flex;align-items:center;justify-content:center}
 @keyframes floaty{from{transform:translateY(-6px) rotate(-.7deg)}to{transform:translateY(8px) rotate(.9deg)}}
 .chekiBig{width:min(72vw,300px);background:#FFFEFB;border-radius:9px;padding:12px 12px 0;box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);transition:transform .08s linear}
-.chekiBigPhoto{position:relative;aspect-ratio:46/58;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#F6F1EA,#fff)}
-.chekiBigPhoto .talkPhoto{width:100%;height:100%;object-fit:cover;margin:0;border:none;border-radius:0;display:block}
-.chekiBigPhoto img{width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
+.chekiBigPhoto{position:relative;width:100%;padding-top:126.0870%;height:0;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#F6F1EA,#fff)}
+.chekiBigPhoto .talkPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
+.chekiBigPhoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
 .chekiPh.bigPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:900;color:#D8CFE4;opacity:.75}}
 .chekiSeal.bigSeal{width:28px;height:28px;top:8px;right:8px}
 .chekiBigFoot{padding:10px 4px 14px;display:flex;flex-direction:column;gap:3px}
@@ -738,9 +738,9 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .shelf-charcoal .chekiSlot,.shelf-velvet .chekiSlot{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
 .cheki{border:none;background:#FFFEFB;padding:6px 6px 0;border-radius:5px;box-shadow:0 2px 8px rgba(60,45,30,.2),0 0 0 1px rgba(0,0,0,.045);transform:rotate(var(--tilt,0deg));display:flex;flex-direction:column;text-align:left;transition:transform .18s;cursor:pointer}
 .cheki:active{transform:rotate(0deg) scale(1.05);z-index:2;position:relative}
-.chekiPhoto{position:relative;aspect-ratio:46/58;border-radius:2px;overflow:hidden;background:linear-gradient(160deg,var(--soft),#fff)}
-.chekiPhoto .talkPhoto{width:100%;height:100%;object-fit:cover;margin:0;border:none;border-radius:0;display:block}
-.chekiPhoto img{width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
+.chekiPhoto{position:relative;width:100%;padding-top:126.0870%;height:0;border-radius:2px;overflow:hidden;background:linear-gradient(160deg,var(--soft),#fff)}
+.chekiPhoto .talkPhoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
+.chekiPhoto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
 .chekiPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:var(--acc);opacity:.5}
 .chekiSeal{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#FFE9A8,#FFD23F);display:flex;align-items:center;justify-content:center;color:#B9770E;box-shadow:0 1px 3px rgba(0,0,0,.3);transform:rotate(10deg)}
 .cheki .collBadge{top:auto;bottom:4px;right:4px;width:18px;height:18px}
