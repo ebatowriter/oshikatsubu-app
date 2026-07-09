@@ -333,15 +333,17 @@ textarea.input{font-size:16px}
 .gGrid .gCard{position:relative}
 .gCard{position:relative;border:none;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:none;color:var(--ink)}
 .gThumbWrap{position:relative;width:100%;display:block;line-height:0}
-.gThumb{width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:none;flex:none;line-height:0;padding:0;box-shadow:0 0 0 1.5px rgba(25,25,33,.08);transition:box-shadow .16s}
+.gThumb{position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;display:grid;place-items:center;background:#fff;border:none;line-height:0;padding:0;box-shadow:0 0 0 1.5px rgba(25,25,33,.08);transition:box-shadow .16s}
 .gCard.on .gThumb{box-shadow:0 0 0 3px var(--gc)}
 .gCard.on .gName{color:var(--gc)}
-.gThumb img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%}
+.gThumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:50%}
+.gThumb span{width:100%;height:100%;display:block;line-height:0}
+.gThumb span img{width:100%;height:100%;object-fit:cover;object-position:center;border-radius:50%}
 .gThumbTxt{color:#fff;font-size:30px;font-weight:900;line-height:1;background:var(--gc);padding:0}
 .gThumbAll{color:#6E7482;background:#F1F1EE;padding:0}
 .markImg{width:40px;height:40px;border-radius:50%;overflow:hidden;display:flex;background:#fff;border:none;line-height:0;box-shadow:0 0 0 1.5px rgba(25,25,33,.1)}
 .markImg img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%}
-.gIconEdit{position:absolute;top:0;right:0;transform:translate(15%,-15%);width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.98);border:1.5px solid rgba(25,25,33,.28);box-shadow:0 2px 5px rgba(25,25,33,.16);display:flex;align-items:center;justify-content:center;color:#55525e;cursor:pointer}
+.gIconEdit{position:absolute;top:-3px;right:-3px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.98);border:1.5px solid rgba(25,25,33,.28);box-shadow:0 2px 5px rgba(25,25,33,.16);display:flex;align-items:center;justify-content:center;color:#55525e;cursor:pointer}
 .gIconEdit input{display:none}
 .gNewRow{display:flex;flex-wrap:wrap;gap:18px 12px;align-items:center;margin:14px 0 10px;width:100%}
 .gNewRow .input{flex:1 1 100%}
@@ -352,9 +354,9 @@ textarea.input{font-size:16px}
 .predList{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .segRow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .pocaCard{display:flex;gap:16px;align-items:stretch;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:14px;box-shadow:4px 4px 0 rgba(25,25,33,.12)}
-.pocaFrame{position:relative;flex:none;width:96px;align-self:center;border-radius:8px;padding:5px 5px 18px;background:linear-gradient(130deg,#ff9ecb,#ffd76e,#9ef0c0,#8fc9ff,#c39bff);background-size:300% 300%;animation:holoPoca 6s ease-in-out infinite;overflow:hidden;display:block;box-shadow:0 3px 10px rgba(25,25,33,.18)}
-.pocaFrame img{width:100%;aspect-ratio:46/58;object-fit:cover;border-radius:5px;display:block;background:#fff}
-.pocaShine{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:10px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.7) 45%,transparent 60%);background-size:280% 100%;animation:pocaShine .9s ease-out .05s 1 both}
+.pocaFrame{position:relative;flex:none;width:96px;align-self:center;border-radius:4px;padding:6px 6px 20px;background:#FFFEFB;overflow:hidden;display:block;box-shadow:0 3px 10px rgba(25,25,33,.2),0 0 0 1px rgba(25,25,33,.07)}
+.pocaFrame img{width:100%;aspect-ratio:46/58;object-fit:cover;border-radius:2px;display:block;background:#F6F1EA}
+.pocaShine{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:4px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.7) 45%,transparent 60%);background-size:280% 100%;animation:pocaShine .9s ease-out .05s 1 both}
 .pocaBody{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2px 0}
 .pocaEyebrow{display:block;font-size:10.5px;font-weight:900;letter-spacing:.14em;color:var(--acc)}
 .pocaTitle{display:block;font-size:16px;font-weight:900;margin:5px 0 6px;color:var(--ink);line-height:1.35}
