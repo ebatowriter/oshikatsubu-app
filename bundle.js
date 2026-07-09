@@ -246,7 +246,6 @@ textarea.input{font-size:16px}
 .obNote{font-size:10px;color:var(--dim);line-height:1.7}
 .gGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 10px;padding:6px 2px 2px}
 .gGrid.pad{padding:4px 0 10px}
-.gCard.on{background:var(--gc);color:#fff;box-shadow:4px 4px 0 var(--ink)}
 .gSym{font-size:30px;font-weight:900;line-height:1}
 .gName{font-weight:900;font-size:12.5px;line-height:1.35;text-align:center;color:var(--ink);word-break:break-word}
 .gKana{font-size:10px;font-weight:700;opacity:.75}
@@ -332,15 +331,15 @@ textarea.input{font-size:16px}
 .rankHead b{font-size:14.5px;letter-spacing:.02em}
 .rankHead span{font-size:10.5px;color:var(--dim);font-weight:800}
 .gGrid .gCard{position:relative}
-.gCard{position:relative;border:none;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:none}
+.gCard{position:relative;border:none;background:none;padding:0;display:flex;flex-direction:column;align-items:center;gap:9px;box-shadow:none;color:var(--ink)}
 .gThumbWrap{position:relative;width:100%;display:block;line-height:0}
-.gThumb{width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:none;flex:none;line-height:0;padding:3px;box-shadow:0 0 0 2px var(--line),0 3px 8px rgba(25,25,33,.1);transition:box-shadow .16s}
-.gCard.on .gThumb{box-shadow:0 0 0 3px var(--gc),0 4px 12px rgba(25,25,33,.18)}
+.gThumb{width:100%;aspect-ratio:1/1;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fff;border:none;flex:none;line-height:0;padding:0;box-shadow:0 0 0 1.5px rgba(25,25,33,.08);transition:box-shadow .16s}
+.gCard.on .gThumb{box-shadow:0 0 0 3px var(--gc)}
 .gCard.on .gName{color:var(--gc)}
 .gThumb img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%}
 .gThumbTxt{color:#fff;font-size:30px;font-weight:900;line-height:1;background:var(--gc);padding:0}
 .gThumbAll{color:#6E7482;background:#F1F1EE;padding:0}
-.markImg{width:28px;height:28px;border-radius:50%;overflow:hidden;display:flex;background:transparent;border:none;line-height:0}
+.markImg{width:40px;height:40px;border-radius:50%;overflow:hidden;display:flex;background:#fff;border:none;line-height:0;box-shadow:0 0 0 1.5px rgba(25,25,33,.1)}
 .markImg img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%}
 .gIconEdit{position:absolute;top:0;right:0;transform:translate(15%,-15%);width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.98);border:1.5px solid rgba(25,25,33,.28);box-shadow:0 2px 5px rgba(25,25,33,.16);display:flex;align-items:center;justify-content:center;color:#55525e;cursor:pointer}
 .gIconEdit input{display:none}
@@ -718,6 +717,9 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .guideBtns{display:flex;align-items:center;gap:12px;width:100%}
 
 /* group switch label in header */
+.markBtn:has(.markImg){border:none;background:none;box-shadow:none;padding:2px 0 1px}
+.markBtn:has(.markImg):active{transform:translate(1px,1px);box-shadow:none}
+.markBtn:has(.markImg) .markSwitch{color:var(--dim);opacity:1}
 .markBtn{width:46px;height:auto;min-height:46px;border:2px solid var(--ink);border-radius:12px;background:var(--acc);box-shadow:3px 3px 0 var(--ink);padding:5px 0 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;flex:none}
 .markBtn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
 .markSwitch{display:inline-flex;align-items:center;gap:0;font-size:7.5px;font-weight:800;color:#fff;opacity:.85;letter-spacing:.02em;line-height:1;margin-top:2px}
