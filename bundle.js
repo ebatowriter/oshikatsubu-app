@@ -335,7 +335,7 @@ textarea.input{font-size:16px}
 .segRow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .pocaCard{display:flex;gap:16px;align-items:stretch;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:14px;box-shadow:4px 4px 0 rgba(25,25,33,.12)}
 .pocaFrame{position:relative;flex:none;width:96px;align-self:center;border-radius:4px;padding:6px 6px 20px;background:#FFFEFB;overflow:hidden;display:block;box-shadow:0 3px 10px rgba(25,25,33,.2),0 0 0 1px rgba(25,25,33,.07)}
-.pocaFrame img{width:100%;aspect-ratio:46/58;object-fit:cover;border-radius:2px;display:block;background:#F6F1EA}
+.pocaFrame img{width:100%;aspect-ratio:46/58;object-fit:cover;object-position:center;border-radius:2px;display:block;background:#F6F1EA}
 .pocaShine{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:4px;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.7) 45%,transparent 60%);background-size:280% 100%;animation:pocaShine .9s ease-out .05s 1 both}
 .pocaBody{min-width:0;flex:1;display:flex;flex-direction:column;justify-content:center;padding:2px 0}
 .pocaEyebrow{display:block;font-size:10.5px;font-weight:900;letter-spacing:.14em;color:var(--acc)}
@@ -636,7 +636,7 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .chekiBig{width:min(72vw,300px);background:#FFFEFB;border-radius:9px;padding:12px 12px 0;box-shadow:0 26px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08);transition:transform .08s linear}
 .chekiBigPhoto{position:relative;aspect-ratio:46/58;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#F6F1EA,#fff)}
 .chekiBigPhoto .talkPhoto{width:100%;height:100%;object-fit:cover;margin:0;border:none;border-radius:0;display:block}
-.chekiBigPhoto img{width:100%;height:100%;object-fit:cover;margin:0;border:none;border-radius:0;display:block}
+.chekiBigPhoto img{width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
 .chekiPh.bigPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;font-weight:900;color:#D8CFE4;opacity:.75}}
 .chekiSeal.bigSeal{width:28px;height:28px;top:8px;right:8px}
 .chekiBigFoot{padding:10px 4px 14px;display:flex;flex-direction:column;gap:3px}
@@ -740,6 +740,7 @@ svg.ic{vertical-align:-2px;margin-right:4px;flex:none}
 .cheki:active{transform:rotate(0deg) scale(1.05);z-index:2;position:relative}
 .chekiPhoto{position:relative;aspect-ratio:46/58;border-radius:2px;overflow:hidden;background:linear-gradient(160deg,var(--soft),#fff)}
 .chekiPhoto .talkPhoto{width:100%;height:100%;object-fit:cover;margin:0;border:none;border-radius:0;display:block}
+.chekiPhoto img{width:100%;height:100%;object-fit:cover;object-position:center;margin:0;border:none;border-radius:0;display:block}
 .chekiPh{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:var(--acc);opacity:.5}
 .chekiSeal{position:absolute;top:4px;right:4px;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#FFE9A8,#FFD23F);display:flex;align-items:center;justify-content:center;color:#B9770E;box-shadow:0 1px 3px rgba(0,0,0,.3);transform:rotate(10deg)}
 .cheki .collBadge{top:auto;bottom:4px;right:4px;width:18px;height:18px}
