@@ -1007,6 +1007,15 @@ a.btnBlack:active{transform:translateY(1px)}
 .heroScroll .tkt.hero{flex:0 0 100%;scroll-snap-align:center;min-width:0}
 .heroScroll.multi .tkt.hero{flex:0 0 87%}
 .heroScroll .tkt.hero{cursor:pointer}
+/* \u30C1\u30A7\u30AD\u5E33: \u9577\u3044\u30AD\u30E3\u30D7\u30B7\u30E7\u30F3\u3067\u3082\u30B0\u30EA\u30C3\u30C9\u304C\u753B\u9762\u5E45\u3092\u8D85\u3048\u306A\u3044(\u81EA\u52D5\u6700\u5C0F\u5E45\u306E\u7121\u52B9\u5316) */
+.binderGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.binderGrid>*{min-width:0}
+.cheki{max-width:100%;overflow:hidden}
+.chekiFoot{min-width:0;max-width:100%}
+.chekiName{min-width:0}
+.chekiName,.chekiSub{max-width:100%}
+.albSheet{grid-template-columns:repeat(2,minmax(0,1fr))}
+.albSheet>*{min-width:0}
 .heroLines{display:flex;flex-direction:column;gap:2px;margin:5px 0 2px;min-width:0}
 .hlDate{font-size:11.5px;font-weight:800;color:#55525E}
 .hlTitle{font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.35;overflow-wrap:anywhere}
