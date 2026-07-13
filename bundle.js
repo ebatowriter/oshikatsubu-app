@@ -1096,6 +1096,7 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
 .oshiBtn.on{color:#E8538A}
 .oshiPreview{margin:0 0 10px;font-size:11px;font-weight:800;color:var(--accInk);background:var(--soft);border-radius:10px;padding:8px 10px}
 .oshiPreview b{color:var(--ink)}
+.fab{bottom:calc(78px + env(safe-area-inset-bottom, 0px))}
 @keyframes stampIn{0%{transform:scale(1.12);opacity:0}55%{transform:scale(.985);opacity:1}100%{transform:none}}
 .reloadBtn:active svg{transform:rotate(120deg);transition:transform .25s ease}
 /* \u2465 \u30AD\u30E3\u30C3\u30C1\u7DE8\u96C6 */
