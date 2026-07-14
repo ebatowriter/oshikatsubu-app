@@ -47,7 +47,15 @@ html,body{margin:0;background:#FAFAF7}
   function showBoot(html) { try { var b = document.getElementById("boot"); if (b) { b.innerHTML = html; b.style.pointerEvents = "auto"; } } catch (e) {} }
   window.addEventListener("error", function (e) {
     try {
-      if (!window.__bootErr && e && (e.message || e.filename)) window.__bootErr = String(e.message || "error") + " @" + String(e.filename || "").split("/").pop() + ":" + (e.lineno || 0);
+      /* アプリ内ブラウザ(LINE/Instagram等)や拡張機能が注入するスクリプトのエラーは
+         "Script error."(詳細マスク)や外部ファイル名で届く——アプリ自身の問題ではないため無視する。
+         bundle.js由来のエラーだけを起動失敗として扱う。 */
+      var fn = String((e && e.filename) || "");
+      var msg = String((e && e.message) || "");
+      var masked = !msg || /^script error\.?$/i.test(msg);
+      var ours = fn.indexOf("bundle.js") >= 0;
+      if (masked || !ours) return;
+      if (!window.__bootErr) window.__bootErr = msg + " @" + fn.split("/").pop() + ":" + (e.lineno || 0);
       if (window.__appStarted) return;
       showBoot('<p style="' + MSG + '">読み込みに失敗しました。<br>お使いのブラウザが古い可能性があります。<br>iOSとSafariを最新版に更新するか、<br>別のブラウザでお試しください。</p>');
     } catch (e2) {}
