@@ -337,7 +337,8 @@ textarea.input{font-size:16px}
 .segRow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .shelf3d .cheki{transform:perspective(700px) rotateX(6deg) rotateY(calc(var(--tiltn,0) * 1deg)) rotate(var(--tilt,0deg));box-shadow:0 8px 16px rgba(60,45,30,.28),0 2px 4px rgba(60,45,30,.2),0 0 0 1px rgba(0,0,0,.05);transition:transform .22s ease,box-shadow .22s ease}
 .shelf3d .cheki:active{transform:perspective(700px) rotateX(2deg) rotateY(0deg) rotate(var(--tilt,0deg)) scale(1.03);box-shadow:0 14px 26px rgba(60,45,30,.34),0 0 0 1px rgba(0,0,0,.05)}
-.chekiBigPhoto.par img,.chekiBigPhoto.par .talkPhoto{transform:scale(1.21) translate(var(--pxx,0px),var(--pxy,0px));transition:transform .09s linear}
+/* \u62E1\u5927\u8868\u793A\u306F\u4E00\u89A7(\u68DA)\u3068\u540C\u4E00\u306E\u8868\u793A\u7BC4\u56F2\u306B\u3059\u308B: \u8996\u5DEE\u7528\u30BA\u30FC\u30E0(scale 1.21)\u3092\u5EC3\u6B62\u3057\u7B49\u500D\u30FB\u975E\u79FB\u52D5\u306B(\u30AB\u30FC\u30C9\u306E3D\u56DE\u8EE2\u3068\u30B0\u30EC\u30A2\u306F\u7D99\u7D9A) */
+.chekiBigPhoto.par img,.chekiBigPhoto.par .talkPhoto{transform:none}
 .chekiBigPhoto.par{transform:translateZ(36px)}
 .bigGlare{position:absolute;inset:0;pointer-events:none;z-index:3;background:radial-gradient(250px 250px at var(--gx,50%) var(--gy,28%),rgba(255,255,255,.5),rgba(255,255,255,.12) 40%,rgba(255,255,255,0) 66%);mix-blend-mode:screen}
 .albWrap{display:flex;flex-direction:column;gap:12px}
