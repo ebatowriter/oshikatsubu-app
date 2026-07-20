@@ -50,20 +50,6 @@ html,body{margin:0;background:#FAFAF7}
   ttq.load('D9F4CKJC77U2EG6DNHTG');
   ttq.page();
 }(window, document, 'ttq');
-/* 課金完了の着地計測: Stripe Payment Linksの完了後リダイレクト(?paid=金額)で1回だけCompletePayment(二重発火防止つき) */
-(function () {
-  try {
-    var q = new URLSearchParams(window.location.search);
-    if (q.has('paid')) {
-      var amt = parseInt(q.get('paid'), 10); if (!(amt > 0)) amt = 2400;
-      if (!window.localStorage.getItem('oshikatsubu-ttq-pay-v1')) {
-        if (window.ttq && window.ttq.track) { window.ttq.track('CompletePayment', { value: amt, currency: 'JPY' }); window.localStorage.setItem('oshikatsubu-ttq-pay-v1', '1'); }
-      }
-      q.delete('paid');
-      window.history.replaceState(null, '', window.location.pathname + (q.toString() ? '?' + q.toString() : '') + window.location.hash);
-    }
-  } catch (e) {}
-})();
 </script>
 <script>
 /* X(Twitter)広告 ユニバーサルウェブサイトタグ(公式スニペット)。読み込み失敗・広告ブロッカー環境でもアプリ本体には影響しない */
@@ -71,6 +57,26 @@ html,body{margin:0;background:#FAFAF7}
   e.twq || (s = e.twq = function () { s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments); }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js', a = t.getElementsByTagName(n)[0], a && a.parentNode ? a.parentNode.insertBefore(u, a) : t.head.appendChild(u))
 }(window, document, 'script');
 twq('config', 're0ao');
+</script>
+<script>
+/* 課金完了の着地計測: Stripe Payment Linksの完了後リダイレクト(?paid=金額)で1回だけCompletePayment(二重発火防止つき) */
+(function () {
+  try {
+    var q = new URLSearchParams(window.location.search);
+    if (q.has('paid')) {
+      var amt = parseInt(q.get('paid'), 10); if (!(amt > 0)) amt = 2400;
+      if (!window.localStorage.getItem('oshikatsubu-ttq-pay-v1')) {
+        var fired = false;
+        try { if (window.ttq && window.ttq.track) { window.ttq.track('CompletePayment', { value: amt, currency: 'JPY' }); fired = true; } } catch (e2) {}
+        /* X広告の課金完了CV(TikTokと同一条件・同一の二重発火防止内) */
+        try { if (typeof window.twq === 'function') { window.twq('event', 'tw-re0ao-re0aw', { value: amt, currency: 'JPY' }); fired = true; } } catch (e3) {}
+        if (fired) window.localStorage.setItem('oshikatsubu-ttq-pay-v1', '1');
+      }
+      q.delete('paid');
+      window.history.replaceState(null, '', window.location.pathname + (q.toString() ? '?' + q.toString() : '') + window.location.hash);
+    }
+  } catch (e) {}
+})();
 </script>
 </head>
 <body>
