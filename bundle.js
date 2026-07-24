@@ -1144,7 +1144,8 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
 .tryRow.done .tryMark{background:var(--ink);color:#fff}
 .tryTxt{display:flex;flex-direction:column;gap:1px;font-size:12.5px}
 .tryTxt small{font-size:10.5px;color:var(--mut);font-weight:600}
-.shcPage{max-width:480px;margin:0 auto;padding:22px 16px 40px;display:flex;flex-direction:column;gap:14px;min-height:100vh}
+.shcPage{--ink:#191921;--paper:#FAFAF7;--soft:#E7E4DA;--mut:#8A8894;--acc:#3474B5;--line:#E6E4DD;--dim:#8A8894;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",system-ui,sans-serif;color:var(--ink);max-width:480px;margin:0 auto;padding:22px 16px 40px;display:flex;flex-direction:column;gap:14px;min-height:100vh}
+.shcPage *{box-sizing:border-box}
 .shcBrand{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:900;color:var(--ink)}
 .shcPill{font-size:10px;font-weight:800;color:#fff;background:var(--ink);border-radius:99px;padding:3px 9px}
 .shcH1{font-size:19px;font-weight:900;color:var(--ink);margin:2px 0}
