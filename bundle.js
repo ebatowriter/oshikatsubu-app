@@ -1143,7 +1143,9 @@ html,body{max-width:100%;overflow-x:hidden;overflow-x:clip}
 .sessBanner b{color:#FFD9A8}
 .exitInfo{display:flex;flex-direction:column;gap:10px;border:2px solid var(--ink);border-radius:13px;padding:14px;background:linear-gradient(135deg,var(--soft),#fff);font-size:12.5px;line-height:1.7}
 .btnD{width:100%;padding:13px;border:2px solid #B3261E;border-radius:13px;background:#B3261E;color:#fff;font-weight:900;font-size:13.5px}
-.exitBody{gap:24px !important;padding-top:12px;padding-bottom:26px}
+.exitBody{display:flex;flex-direction:column;gap:22px;padding:14px 2px 28px}
+.exitBody .btnP{margin:0}
+.exitBody .field{margin:0}
 .exitChips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .exitChips .chip{width:100%;justify-content:center;text-align:center;padding:11px 8px;font-size:12px;line-height:1.4;white-space:normal}
 .exitLink{display:block;width:100%;margin-top:6px;padding:12px;background:none;border:none;color:var(--mut);font-size:12.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
