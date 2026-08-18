@@ -100,6 +100,28 @@ header img { height: 30px; display: block; }
 .eyebrow { font-size: 12.5px; font-weight: 800; color: var(--pink); letter-spacing: .08em; margin-bottom: 12px; }
 h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .fvYen { margin: 22px 0 8px; font-size: 54px; }
+/* ===== ①カウントアップ ②運営コメント ③⑤背景動画 ④¥0スロット ===== */
+.comment { max-width: 420px; margin: 30px auto 0; background: #fff; color: var(--ink); border-radius: 20px; padding: 20px 22px; text-align: left; position: relative; box-shadow: var(--shadow-lg); }
+.comment::before { content: ""; position: absolute; top: -10px; left: 44px; width: 20px; height: 20px; background: #fff; transform: rotate(45deg); border-radius: 3px; }
+.cHead { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.cHead img { height: 26px; }
+.cHead b { display: block; font-size: 13.5px; font-weight: 900; line-height: 1.3; }
+.cHead span { font-size: 11px; color: var(--faint); }
+.comment p { font-size: 13.5px; color: var(--sub); line-height: 2; margin: 0; }
+.sBg { position: relative; overflow: clip; }
+.sBgVid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sBgShade { position: absolute; inset: 0; background: rgba(255,255,255,.88); }
+.sBg .wrap { position: relative; }
+.offerYen { display: flex; justify-content: center; align-items: baseline; line-height: 1; }
+.offerYen .slot .reel i { color: var(--pink); }
+.closing { position: relative; overflow: clip; padding: 64px 0; background: none; }
+.clVid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.clInner { position: relative; max-width: 440px; margin: 0 auto; background: rgba(255,255,255,.97); border-radius: 26px; padding: 48px 26px 44px; text-align: center; box-shadow: var(--shadow-lg); }
+.clInner .tg { font-size: 26px; font-weight: 900; line-height: 1.8; color: var(--ink); }
+.clInner .tgSub { font-size: 13.5px; color: var(--sub); margin: 16px 0 30px; line-height: 2; }
+.closingPad { position: relative; padding: 0 16px; }
+@media (prefers-reduced-motion: reduce) { .sBgVid, .clVid { display: none; } .sBg { background: var(--gray); } .closing { background: var(--gray); } }
+
 /* ===== スロット演出(¥???,???) ===== */
 .fvYen { line-height: 1; display: flex; align-items: baseline; gap: 2px; }
 .slot { display: inline-block; height: 1em; overflow: hidden; }
@@ -243,7 +265,7 @@ footer a { margin-right: 16px; }
       <div class="fvYen num" role="img" aria-label="¥???,???">¥<span class="slot s1"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s2"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s3"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="q">,</span><span class="slot s4"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s5"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s6"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span></div>
       <div class="fvBar"></div>
       <p class="fvSub">CD積み・遠征・グッズ・チェキ。どんぶり勘定のまま、現場の思い出まで流れていってませんか。</p>
-      <p class="proof">すでに<b>185</b>人が、入部しています。<span>(2026年8月時点)</span></p>
+      <p class="proof">すでに<b class="count" data-to="185">0</b>人が、入部しています。<span>(2026年8月時点)</span></p>
     </div>
   </div>
 </div>
@@ -254,12 +276,19 @@ footer a { margin-right: 16px; }
   <div class="bandShade"></div>
   <div class="wrap">
     <p>セトリは、Xの下書きに。<br>チェキは、机の引き出しに。<br>使った額は、見て見ぬふり。</p>
-    <p class="light">レーンで話したあの数十秒も、緊張しすぎて、もう思い出せない。<br><br>わかります。作っている私たちも、推す側だから。<br>現場帰りの電車で「今日も最高だった」の余韻ごと残したくて、<br>自分たちのために作ったのがこのアプリです。</p>
+    <p class="light">レーンで話したあの数十秒も、緊張しすぎて、もう思い出せない。</p>
+    <div class="comment">
+      <div class="cHead"><img src="/lp/logo.png" alt=""><div><b>株式会社オシカツ</b><span>運営チーム</span></div></div>
+      <p>わかります。作っている私たちも、推す側だから。現場帰りの電車で「今日も最高だった」の余韻ごと残したくて、自分たちのために作ったのがこのアプリです。</p>
+    </div>
   </div>
 </section>
 
 <!-- ============ S: 解決策 ============ -->
-<section class="wrap" style="padding-top:140px">
+<section class="sBg" style="padding-top:0;padding-bottom:0">
+  <video class="sBgVid" autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="/lp/vid_cnt.mp4" type="video/mp4"></video>
+  <div class="sBgShade"></div>
+  <div class="wrap" style="padding-top:140px;padding-bottom:88px">
   <h2>散らばった推し活に、<br>「部室」を作りました。</h2>
   <p class="lead">セトリも、チェキも、使った額も、置き場所はぜんぶここ。</p>
   <p class="contrast">家計簿でも、日記でも、<br>SNSでもない。<br><em>推し活のための、部室です。</em></p>
@@ -292,6 +321,7 @@ footer a { margin-right: 16px; }
     <div class="chip"><img loading="lazy" src="/lp/chip3.jpg" alt=""><span>遠征マップ</span></div>
     <div class="chip"><img loading="lazy" src="/lp/chip4.jpg" alt=""><span>写真アルバム</span></div>
   </div>
+  </div>
 </section>
 
 <!-- ============ 情景: 記録の瞬間 ============ -->
@@ -304,8 +334,8 @@ footer a { margin-right: 16px; }
 <section class="offer">
   <div class="wrap">
     <h2>記録は、ずっと無料。</h2>
-    <div class="offerYen num">¥0</div>
-    <p class="offerNote">登録も、記録も、見返すのも。</p>
+    <div class="offerYen num" role="img" aria-label="¥0">¥<span class="slot"><span class="reel"><i>9</i><i>5</i><i>3</i><i>8</i><i>2</i><i>7</i><i>4</i><i>1</i><i>6</i><i>3</i><i>0</i></span></span></div>
+    <p class="offerNote">登録も、記録も、見返すのも——ほぼぜんぶ、無料。</p>
     <p class="offerSub"><strong>思い出を人質にしません。</strong>書いた記録の閲覧・編集・削除・書き出しに、課金の壁は作りません。チェキ帳などの一部機能だけ、月¥300のジョイパスでご利用いただけます。</p>
   </div>
 </section>
@@ -339,10 +369,13 @@ footer a { margin-right: 16px; }
 
 <!-- ============ 締め: ブランド宣言 ============ -->
 <section class="closing">
-  <div class="wrap">
-    <p class="tg">推し活は、<br>人生の一部だから。</p>
-    <p class="tgSub">趣味と呼ぶには、もう大きすぎる。<br>だから、ちゃんと残す道具を作りました。</p>
-    <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+  <video class="clVid" autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="/lp/fv_video.mp4" type="video/mp4"></video>
+  <div class="closingPad">
+    <div class="clInner">
+      <p class="tg">推し活は、<br>人生の一部だから。</p>
+      <p class="tgSub">趣味と呼ぶには、もう大きすぎる。<br>だから、ちゃんと残す道具を作りました。</p>
+      <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+    </div>
   </div>
 </section>
 
@@ -357,5 +390,30 @@ footer a { margin-right: 16px; }
   <a class="ctaBtn" data-cta href="/">無料で入部する</a>
 </div>
 
+<script>
+/* ①185人カウントアップ(視界に入ったら0→実数へ) */
+(function () {
+  var el = document.querySelector(".count");
+  if (!el) return;
+  var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = to; return; }
+  var done = false;
+  function run() {
+    if (done) return; done = true;
+    var t0 = null, dur = 1400;
+    function step(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(to * eased);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (e.isIntersecting) { run(); o.disconnect(); } }); }).observe(el);
+  } else { run(); }
+})();
+</script>
 </body>
 </html>
