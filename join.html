@@ -99,7 +99,22 @@ header img { height: 30px; display: block; }
 }
 .eyebrow { font-size: 12.5px; font-weight: 800; color: var(--pink); letter-spacing: .08em; margin-bottom: 12px; }
 h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
-.fvYen { margin: 22px 0 8px; font-size: 54px; line-height: 1.1; }
+.fvYen { margin: 22px 0 8px; font-size: 54px; }
+/* ===== スロット演出(¥???,???) ===== */
+.fvYen { line-height: 1; display: flex; align-items: baseline; gap: 2px; }
+.slot { display: inline-block; height: 1em; overflow: hidden; }
+.reel { display: block; font-variant-numeric: tabular-nums; animation: reelSpin 6.5s cubic-bezier(.15,.75,.25,1) infinite; }
+.reel i { font-style: normal; display: block; height: 1em; line-height: 1; color: var(--pink); }
+.reel i.d { color: var(--ink); }
+.s2 .reel { animation-delay: .14s; } .s3 .reel { animation-delay: .28s; }
+.s4 .reel { animation-delay: .42s; } .s5 .reel { animation-delay: .56s; } .s6 .reel { animation-delay: .7s; }
+@keyframes reelSpin {
+  0% { transform: translateY(0); }
+  46% { transform: translateY(-10em); }
+  100% { transform: translateY(-10em); }
+}
+@media (prefers-reduced-motion: reduce) { .reel { animation: none; transform: translateY(-10em); } }
+
 .fvYen .q { color: var(--pink); }
 .fvBar { height: 6px; width: 176px; border-radius: 3px;
   background: linear-gradient(90deg, var(--pink), var(--amber), var(--yell), var(--mint), var(--blue), var(--pur)); }
@@ -225,7 +240,7 @@ footer a { margin-right: 16px; }
       <header><img src="/lp/logo.png" alt="オシカツ部"></header>
       <p class="eyebrow">推し活してるみなさんへ</p>
       <h1>今年、推しに<br>いくら使ったか<br>言えますか?</h1>
-      <div class="fvYen num">¥<span class="q">???,???</span></div>
+      <div class="fvYen num" role="img" aria-label="¥???,???">¥<span class="slot s1"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s2"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s3"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="q">,</span><span class="slot s4"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s5"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span><span class="slot s6"><span class="reel"><i class="d">0</i><i class="d">7</i><i class="d">2</i><i class="d">9</i><i class="d">4</i><i class="d">1</i><i class="d">8</i><i class="d">3</i><i class="d">6</i><i class="d">5</i><i>?</i></span></span></div>
       <div class="fvBar"></div>
       <p class="fvSub">CD積み・遠征・グッズ・チェキ。どんぶり勘定のまま、現場の思い出まで流れていってませんか。</p>
       <p class="proof">すでに<b>185</b>人が、入部しています。<span>(2026年8月時点)</span></p>
