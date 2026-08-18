@@ -110,7 +110,7 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .comment p { font-size: 13.5px; color: var(--sub); line-height: 2; margin: 0; }
 .sBg { position: relative; overflow: clip; }
 .sBgVid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.sBgShade { position: absolute; inset: 0; background: rgba(255,255,255,.88); }
+.sBgShade { position: absolute; inset: 0; background: rgba(255,255,255,.70); }
 .sBg .wrap { position: relative; }
 .offerYen { display: flex; justify-content: center; align-items: baseline; line-height: 1; }
 .offerYen .slot .reel i { color: var(--pink); }
@@ -121,6 +121,9 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .clInner .tgSub { font-size: 13.5px; color: var(--sub); margin: 16px 0 30px; line-height: 2; }
 .closingPad { position: relative; padding: 0 16px; }
 @media (prefers-reduced-motion: reduce) { .sBgVid, .clVid { display: none; } .sBg { background: var(--gray); } .closing { background: var(--gray); } }
+/* ===== ③スクロール出現(ふわっ) ===== */
+.js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
 
 /* ===== スロット演出(¥???,???) ===== */
 .fvYen { line-height: 1; display: flex; align-items: baseline; gap: 2px; }
@@ -153,11 +156,11 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
   background: var(--card); border: 2px solid var(--line); border-radius: 20px;
   padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow);
 }
-.card.pink { border-color: var(--pink); } .card.blue { border-color: var(--blue); } .card.mint { border-color: var(--mint); }
+.card.pink { border-color: var(--pink); } .card.blue { border-color: var(--blue); } .card.mint { border-color: var(--mint); } .card.pur { border-color: var(--pur); }
 .card h3 { font-size: 17px; font-weight: 900; margin-bottom: 5px; }
 .card p { font-size: 13.5px; color: var(--sub); }
 .tag { display: inline-block; font-size: 11px; font-weight: 800; padding: 2px 12px; border-radius: 999px; margin-bottom: 10px; color: #fff; }
-.tag.pink { background: var(--pink); } .tag.blue { background: var(--blue); } .tag.mint { background: var(--mint); }
+.tag.pink { background: var(--pink); } .tag.blue { background: var(--blue); } .tag.mint { background: var(--mint); } .tag.pur { background: var(--pur); }
 .phones { display: flex; gap: 14px; justify-content: center; margin-top: 44px; }
 .phone {
   width: 46%; max-width: 190px; border-radius: 26px; overflow: hidden;
@@ -275,7 +278,7 @@ footer a { margin-right: 16px; }
   <video class="bandVideo" autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="/lp/vid_photoband.mp4" type="video/mp4"></video>
   <div class="bandShade"></div>
   <div class="wrap">
-    <p>セトリは、Xの下書きに。<br>チェキは、机の引き出しに。<br>使った額は、見て見ぬふり。</p>
+    <p>ライブの思い出は、<br>メモ帳のすみに。<br>チェキは、引き出しに。<br>使ったお金は、見て見ぬふり。</p>
     <p class="light">レーンで話したあの数十秒も、緊張しすぎて、もう思い出せない。</p>
     <div class="comment">
       <div class="cHead"><img src="/lp/logo.png" alt=""><div><b>株式会社オシカツ</b><span>運営チーム</span></div></div>
@@ -308,12 +311,17 @@ footer a { margin-right: 16px; }
     <h3>締切と結果を、ひと目で</h3>
     <p>申込の締切順に並ぶから、うっかり忘れがなくなります。</p>
   </div>
+  <div class="card pur">
+    <span class="tag pur">仲間</span>
+    <h3>同じ現場の部員が、見える</h3>
+    <p>チェックインすると、いま同じ現場にいる部員がわかります。人見知りでも、部員同士なら話しかけてOK。</p>
+  </div>
 
   <div class="phones">
     <div class="phone"><img loading="lazy" src="/lp/shot_home.jpg" alt="オシカツ部のホーム画面(記録が育った状態のデモ)"></div>
     <div class="phone"><img loading="lazy" src="/lp/shot_cheki.jpg" alt="チェキ帳の画面(デモ)"></div>
   </div>
-  <p class="phoneNote">画面はデモです。人物・イベント名は架空のものです。</p>
+  <p class="phoneNote">参戦カレンダーは、Xでそのままシェアできます。<br>画面はデモです。人物・イベント名は架空のものです。</p>
 
   <div class="chips">
     <div class="chip"><img loading="lazy" src="/lp/chip1.jpg" alt=""><span>参加券の管理</span></div>
@@ -373,7 +381,7 @@ footer a { margin-right: 16px; }
   <div class="closingPad">
     <div class="clInner">
       <p class="tg">推し活は、<br>人生の一部だから。</p>
-      <p class="tgSub">趣味と呼ぶには、もう大きすぎる。<br>だから、ちゃんと残す道具を作りました。</p>
+      <p class="tgSub">趣味と呼ぶには、もう大きすぎる。<br>だから、ちゃんと残す道具を作りました。<br>推し仲間を誘って、いっしょにどうぞ。</p>
       <a class="ctaBtn" data-cta href="/">無料で入部する</a>
     </div>
   </div>
@@ -390,6 +398,20 @@ footer a { margin-right: 16px; }
   <a class="ctaBtn" data-cta href="/">無料で入部する</a>
 </div>
 
+<script>
+/* ③スクロール出現: 主要ブロックにふわっと登場を付与 */
+(function () {
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+  document.documentElement.classList.add("js");
+  var sel = "h2, .card, .phones, .phoneNote, .chips, .scene, .checkList li, .steps .step, .comment, .proof, .offerYen, .offerNote, .offerSub, .members, .clInner, section > .wrap > .ctaBtn, .contrast, .lead";
+  var els = document.querySelectorAll(sel);
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  els.forEach(function (el) { el.classList.add("rv"); io.observe(el); });
+})();
+</script>
 <script>
 /* ①185人カウントアップ(視界に入ったら0→実数へ) */
 (function () {
