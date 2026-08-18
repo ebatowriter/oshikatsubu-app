@@ -146,8 +146,9 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 /* ===== その他の機能一覧 ===== */
 .moreBtn { display: block; width: 100%; margin-top: 26px; background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 14px; font-size: 14.5px; font-weight: 900; color: var(--ink); font-family: inherit; }
 .moreList { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.moreList[hidden] { display: none; }
 .moreList span { background: #fff; border: 1.5px solid var(--line); border-radius: 12px; padding: 11px 12px; font-size: 12px; font-weight: 700; color: var(--sub); box-shadow: var(--shadow); }
-.moreList .jp { color: var(--pink); font-size: 10px; font-weight: 900; }
+.moreList .jp { color: var(--pink); font-size: 10px; font-weight: 900; background: none; border: none; padding: 0; box-shadow: none; display: inline; white-space: nowrap; }
 
 /* ===== ③スクロール出現(ふわっ) ===== */
 .js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
