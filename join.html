@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>オシカツ部 - 推し活は、人生の一部だから。</title>
+<meta name="description" content="推し活の記録アプリ「オシカツ部」。現場の思い出も、使ったお金も、抽選の締切も、ぜんぶ1つに。記録はずっと無料。">
+<meta property="og:title" content="オシカツ部 - 推し活の記録アプリ">
+<meta property="og:description" content="今年、推しにいくら使ったか言えますか? 記録はずっと無料。">
+<meta property="og:url" content="https://app.oshikatsu.co.jp/join">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- ============ 計測: UTM引き継ぎ(アプリと同一キー・初回接触優先・v3.13.1準拠) ============ -->
+<script>
+(function () {
+  try {
+    var q = new URLSearchParams(location.search || "");
+    var cnt = String(q.get("utm_content") || "").slice(0, 60);
+    var prevRaw = localStorage.getItem("oshikatsubu-utm-v1");
+    if (prevRaw) {
+      if (cnt) {
+        var prev = JSON.parse(prevRaw);
+        if (prev && !prev.cnt && prev.cmp && prev.cmp === String(q.get("utm_campaign") || "").slice(0, 60)) {
+          prev.cnt = cnt;
+          localStorage.setItem("oshikatsubu-utm-v1", JSON.stringify(prev));
+        }
+      }
+    } else {
+      var src = q.get("utm_source") || (q.get("ttclid") ? "tiktok" : (q.get("twclid") ? "x" : ""));
+      if (src || q.get("utm_medium") || q.get("utm_campaign")) {
+        localStorage.setItem("oshikatsubu-utm-v1", JSON.stringify({
+          src: String(src || "").slice(0, 40),
+          med: String(q.get("utm_medium") || "").slice(0, 40),
+          cmp: String(q.get("utm_campaign") || "").slice(0, 60),
+          cnt: cnt,
+          at: new Date().toISOString().slice(0, 10)
+        }));
+      }
+    }
+  } catch (e) {}
+  document.addEventListener("DOMContentLoaded", function () {
+    var qs = location.search || "";
+    if (!qs) return;
+    var links = document.querySelectorAll("a[data-cta]");
+    for (var i = 0; i < links.length; i++) { links[i].href = "/" + qs; }
+  });
+})();
+</script>
+
+<!-- ============ SmartNewsピクセル: マーケからタグ受領後にここへ設置(TODO) ============ -->
+<!-- SN_PIXEL_PLACEHOLDER -->
+
+<!-- ============ Xピクセル(アプリ本体と同一設定 re0ao) ============ -->
+<script>
+!function (e, t, n, s, u, a) {
+  e.twq || (s = e.twq = function () { s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments); }, s.version = '1.1', s.queue = [], u = t.createElement(n), u.async = !0, u.src = 'https://static.ads-twitter.com/uwt.js', a = t.getElementsByTagName(n)[0], a && a.parentNode ? a.parentNode.insertBefore(u, a) : t.head.appendChild(u))
+}(window, document, 'script');
+twq('config', 're0ao');
+</script>
+
+<style>
+:root {
+  --ink: #0F0F14; --sub: #6E6E7A; --faint: #9CA0AA;
+  --pink: #F0326E; --blue: #45B8F0; --mint: #3FC99A;
+  --amber: #FFB03A; --pur: #B79CE8; --yell: #FFD84D;
+  --gray: #FDF2F7; --card: #FFFFFF; --line: #EEECF1;
+  --shadow: 0 18px 50px rgba(15,15,20,.10);
+  --shadow-lg: 0 30px 80px rgba(15,15,20,.16);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+  font-feature-settings: "palt";
+  color: var(--ink); background: #fff; line-height: 1.75;
+  padding-bottom: 92px;
+}
+.num { font-family: "Inter", "Noto Sans JP", sans-serif; font-weight: 900; letter-spacing: -0.02em; }
+.wrap { max-width: 480px; margin: 0 auto; padding: 0 22px; }
+section { padding: 88px 0; }
+h2 { font-size: 25px; font-weight: 900; line-height: 1.5; margin-bottom: 8px; }
+.lead { font-size: 14px; color: var(--sub); margin-bottom: 26px; }
+
+/* ===== ヘッダー ===== */
+header { padding: 14px 0; }
+header img { height: 30px; display: block; }
+
+/* ===== P: FV(カプセル柄動画は縁に・情報は白地に) ===== */
+.fv { position: relative; padding: 0 0 44px; overflow: clip; }
+.fvVideo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fvInner {
+  position: relative; margin: 26px auto 0; max-width: 440px;
+  background: rgba(255,255,255,.97); border-radius: 26px;
+  padding: 40px 26px 36px; text-align: left;
+  box-shadow: var(--shadow-lg);
+}
+.eyebrow { font-size: 12.5px; font-weight: 800; color: var(--pink); letter-spacing: .08em; margin-bottom: 12px; }
+h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
+.fvYen { margin: 22px 0 8px; font-size: 54px; line-height: 1.1; }
+.fvYen .q { color: var(--pink); }
+.fvBar { height: 6px; width: 176px; border-radius: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--amber), var(--yell), var(--mint), var(--blue), var(--pur)); }
+.fvSub { margin-top: 18px; font-size: 14.5px; color: var(--sub); }
+.fvPad { padding: 0 16px 8px; position: relative; }
+
+/* ===== A: 黒帯 ===== */
+.band { background: var(--ink); color: #fff; text-align: center; padding: 120px 0; }
+.band p { font-size: 19px; font-weight: 800; line-height: 2.1; }
+.band .light { color: #B9B9C2; font-size: 13.5px; font-weight: 400; margin-top: 16px; line-height: 2; }
+
+/* ===== S: 機能カード+実スクショ ===== */
+.card {
+  background: var(--card); border: 2px solid var(--line); border-radius: 20px;
+  padding: 22px 20px; margin-bottom: 14px; box-shadow: var(--shadow);
+}
+.card.pink { border-color: var(--pink); } .card.blue { border-color: var(--blue); } .card.mint { border-color: var(--mint); }
+.card h3 { font-size: 17px; font-weight: 900; margin-bottom: 5px; }
+.card p { font-size: 13.5px; color: var(--sub); }
+.tag { display: inline-block; font-size: 11px; font-weight: 800; padding: 2px 12px; border-radius: 999px; margin-bottom: 10px; color: #fff; }
+.tag.pink { background: var(--pink); } .tag.blue { background: var(--blue); } .tag.mint { background: var(--mint); }
+.phones { display: flex; gap: 14px; justify-content: center; margin-top: 44px; }
+.phone {
+  width: 46%; max-width: 190px; border-radius: 26px; overflow: hidden;
+  border: 6px solid var(--ink); box-shadow: var(--shadow-lg); background: #fff;
+}
+.phone img { width: 100%; display: block; }
+.phoneNote { text-align: center; font-size: 12px; color: var(--faint); margin-top: 14px; }
+
+/* ===== O: ¥0(薄ピンク面) ===== */
+.offer { background: var(--gray); text-align: center; }
+.offerYen { font-size: 92px; color: var(--pink); line-height: 1.05; }
+.offerNote { font-size: 15px; font-weight: 800; margin-top: 8px; }
+.offerSub { font-size: 13px; color: var(--sub); margin-top: 18px; text-align: left; line-height: 2; }
+.offerSub strong { color: var(--ink); }
+
+/* ===== N: 絞り込み ===== */
+.checkList { list-style: none; }
+.checkList li {
+  font-size: 15px; font-weight: 700; padding: 14px 0 14px 38px;
+  border-bottom: 1px solid var(--line); position: relative;
+}
+.checkList li::before {
+  content: "✓"; position: absolute; left: 4px; top: 14px;
+  width: 23px; height: 23px; border-radius: 50%;
+  background: var(--mint); color: #fff; font-size: 13px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+}
+.members { margin-top: 26px; font-size: 13px; color: var(--sub); line-height: 2; }
+
+/* ===== 3ステップ ===== */
+.steps { display: flex; gap: 10px; margin-top: 26px; }
+.step { flex: 1; text-align: center; }
+.step img { width: 100%; border-radius: 16px; box-shadow: var(--shadow); display: block; }
+.step p { font-size: 12px; font-weight: 800; margin-top: 10px; line-height: 1.6; }
+.step .no { color: var(--pink); font-size: 11px; font-weight: 900; display: block; }
+
+/* ===== A: CTA ===== */
+.ctaBtn {
+  display: block; background: var(--pink); color: #fff; text-decoration: none;
+  text-align: center; font-size: 17px; font-weight: 900; padding: 18px;
+  border-radius: 999px; box-shadow: 0 14px 32px rgba(240,50,110,.35);
+}
+.ctaNote { text-align: center; font-size: 12px; color: var(--sub); margin-top: 10px; }
+.fixedCta {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  background: rgba(255,255,255,.96); border-top: 1px solid var(--line);
+  padding: 12px 22px calc(12px + env(safe-area-inset-bottom));
+}
+.fixedCta .ctaBtn { max-width: 436px; margin: 0 auto; padding: 15px; font-size: 16px; }
+
+/* ===== フッター ===== */
+footer { padding: 42px 0 60px; border-top: 1px solid var(--line); }
+footer p, footer a { font-size: 12px; color: var(--faint); }
+footer a { margin-right: 16px; }
+.disclaimer { margin-top: 14px; line-height: 1.9; }
+/* ===== 実数の証明・対比コピー・締めのブランド宣言 ===== */
+.proof { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--ink); }
+.proof b { color: var(--pink); font-family: "Inter", sans-serif; font-size: 20px; font-weight: 900; }
+.proof span { font-size: 11px; color: var(--faint); font-weight: 400; }
+.contrast { font-size: 21px; font-weight: 900; line-height: 1.7; margin: 4px 0 30px; }
+.contrast em { font-style: normal; color: var(--pink); }
+.closing { background: var(--ink); color: #fff; text-align: center; padding: 110px 0; }
+.closing .tg { font-size: 26px; font-weight: 900; line-height: 1.8; }
+.closing .tgSub { font-size: 14px; color: #B9B9C2; margin: 18px 0 34px; }
+.closing .ctaBtn { max-width: 320px; margin: 0 auto; }
+
+/* ===== 黒帯を写真帯(ペンライトの海)に ===== */
+.band { position: relative; overflow: clip; }
+.bandVideo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bandShade { position: absolute; inset: 0; background: rgba(15,15,20,.72); }
+.band .wrap { position: relative; }
+
+/* ===== 情景バンド(手帳とスマホ) ===== */
+.scene { position: relative; max-width: 640px; margin: 0 auto; padding: 12px 22px 96px; }
+.scene video { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); }
+.sceneCap {
+  position: absolute; left: 22px; right: 22px; bottom: 96px;
+  padding: 46px 22px 20px;
+  background: linear-gradient(transparent, rgba(15,15,20,.68));
+  color: #fff; font-size: 16px; font-weight: 800; text-align: center;
+  border-radius: 0 0 24px 24px;
+}
+
+/* ===== 機能チップ行 ===== */
+.chips { display: flex; gap: 8px; margin-top: 30px; }
+.chip { flex: 1; text-align: center; background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 4px 12px; box-shadow: var(--shadow); }
+.chip img { width: 34px; height: 34px; object-fit: contain; display: block; margin: 0 auto 6px; }
+.chip span { font-size: 10.5px; font-weight: 800; color: var(--sub); }
+
+@media (prefers-reduced-motion: reduce) { .fvVideo, .bandVideo, .scene video { display: none; } .scene { min-height: 120px; background: var(--ink); } }
+</style>
+</head>
+<body>
+
+<!-- ============ P: 問題提起(FV動画=柄は縁に・情報は白地に) ============ -->
+<div class="fv">
+  <video class="fvVideo" autoplay muted loop playsinline poster="" aria-hidden="true">
+    <source src="/lp/fv_video.mp4" type="video/mp4">
+  </video>
+  <div class="fvPad">
+    <div class="fvInner">
+      <header><img src="/lp/logo.png" alt="オシカツ部"></header>
+      <p class="eyebrow">推し活してるみなさんへ</p>
+      <h1>今年、推しに<br>いくら使ったか<br>言えますか?</h1>
+      <div class="fvYen num">¥<span class="q">???,???</span></div>
+      <div class="fvBar"></div>
+      <p class="fvSub">CD積み・遠征・グッズ・チェキ。どんぶり勘定のまま、現場の思い出まで流れていってませんか。</p>
+      <p class="proof">すでに<b>185</b>人が、入部しています。<span>(2026年8月時点)</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ A: 共感(黒帯) ============ -->
+<section class="band">
+  <video class="bandVideo" autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="/lp/vid_photoband.mp4" type="video/mp4"></video>
+  <div class="bandShade"></div>
+  <div class="wrap">
+    <p>セトリは、Xの下書きに。<br>チェキは、机の引き出しに。<br>使った額は、見て見ぬふり。</p>
+    <p class="light">レーンで話したあの数十秒も、緊張しすぎて、もう思い出せない。<br><br>わかります。作っている私たちも、推す側だから。<br>現場帰りの電車で「今日も最高だった」の余韻ごと残したくて、<br>自分たちのために作ったのがこのアプリです。</p>
+  </div>
+</section>
+
+<!-- ============ S: 解決策 ============ -->
+<section class="wrap" style="padding-top:140px">
+  <h2>散らばった推し活に、<br>「部室」を作りました。</h2>
+  <p class="lead">セトリも、チェキも、使った額も、置き場所はぜんぶここ。</p>
+  <p class="contrast">家計簿でも、日記でも、<br>SNSでもない。<br><em>推し活のための、部室です。</em></p>
+
+  <div class="card pink">
+    <span class="tag pink">おかね</span>
+    <h3>使った額が、愛の総量になる</h3>
+    <p>CD・遠征・グッズ。記録すれば、今年いくら使ったかがひと目でわかります。</p>
+  </div>
+  <div class="card blue">
+    <span class="tag blue">記録</span>
+    <h3>現場とトークを、一生の記録に</h3>
+    <p>参戦したライブも、レーンで話した数十秒も。未来の現場はカウントダウンに。</p>
+  </div>
+  <div class="card mint">
+    <span class="tag mint">抽選</span>
+    <h3>締切と結果を、ひと目で</h3>
+    <p>申込の締切順に並ぶから、うっかり忘れがなくなります。</p>
+  </div>
+
+  <div class="phones">
+    <div class="phone"><img loading="lazy" src="/lp/shot_home.jpg" alt="オシカツ部のホーム画面(記録が育った状態のデモ)"></div>
+    <div class="phone"><img loading="lazy" src="/lp/shot_cheki.jpg" alt="チェキ帳の画面(デモ)"></div>
+  </div>
+  <p class="phoneNote">画面はデモです。人物・イベント名は架空のものです。</p>
+
+  <div class="chips">
+    <div class="chip"><img loading="lazy" src="/lp/chip1.jpg" alt=""><span>参加券の管理</span></div>
+    <div class="chip"><img loading="lazy" src="/lp/chip2.jpg" alt=""><span>おかね</span></div>
+    <div class="chip"><img loading="lazy" src="/lp/chip3.jpg" alt=""><span>遠征マップ</span></div>
+    <div class="chip"><img loading="lazy" src="/lp/chip4.jpg" alt=""><span>写真アルバム</span></div>
+  </div>
+</section>
+
+<!-- ============ 情景: 記録の瞬間 ============ -->
+<section class="scene">
+  <video autoplay muted loop playsinline preload="none" aria-hidden="true"><source src="/lp/vid_feat1.mp4" type="video/mp4"></video>
+  <div class="sceneCap">現場帰りの電車で、今日を残そ。</div>
+</section>
+
+<!-- ============ O: 提案 ============ -->
+<section class="offer">
+  <div class="wrap">
+    <h2>記録は、ずっと無料。</h2>
+    <div class="offerYen num">¥0</div>
+    <p class="offerNote">登録も、記録も、見返すのも。</p>
+    <p class="offerSub"><strong>思い出を人質にしません。</strong>書いた記録の閲覧・編集・削除・書き出しに、課金の壁は作りません。チェキ帳などの一部機能だけ、月¥300のジョイパスでご利用いただけます。</p>
+  </div>
+</section>
+
+<!-- ============ N: 絞り込み ============ -->
+<section class="wrap" style="padding-top:140px">
+  <h2>こんな人のための<br>アプリです。</h2>
+  <ul class="checkList">
+    <li>現場に行くたび、思い出がSNSに流れて消えていく人</li>
+    <li>積んだ枚数を、もう思い出せない人</li>
+    <li>抽選の締切を、1回でも忘れたことがある人</li>
+    <li>人見知りだけど、推し仲間はほしい人</li>
+  </ul>
+  <p class="members">「人見知りでも、部員同士なら話しかけてOK。」が部のルール。部員証が、話しかけていい免罪符になります。</p>
+</section>
+
+<!-- ============ A: 行動(3ステップ→CTA) ============ -->
+<section class="wrap" style="padding-top:0">
+  <div style="height:8px"></div>
+  <h2 style="margin-top:56px">入部は、3ステップ。</h2>
+  <div class="steps">
+    <div class="step"><img loading="lazy" src="/lp/step1.jpg" alt=""><p><span class="no">STEP 1</span>メールアドレスで入部</p></div>
+    <div class="step"><img loading="lazy" src="/lp/step2.jpg" alt=""><p><span class="no">STEP 2</span>推しを登録</p></div>
+    <div class="step"><img loading="lazy" src="/lp/step3.jpg" alt=""><p><span class="no">STEP 3</span>今日から記録</p></div>
+  </div>
+  <div style="margin-top:34px">
+    <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+    <p class="ctaNote">メールアドレスではじめられます</p>
+  </div>
+</section>
+
+<!-- ============ 締め: ブランド宣言 ============ -->
+<section class="closing">
+  <div class="wrap">
+    <p class="tg">推し活は、<br>人生の一部だから。</p>
+    <p class="tgSub">趣味と呼ぶには、もう大きすぎる。<br>だから、ちゃんと残す道具を作りました。</p>
+    <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/?legal=terms">利用規約</a><a href="/?legal=privacy">プライバシーポリシー</a><a href="https://company.oshikatsu.co.jp">運営会社</a>
+    <p class="disclaimer">オシカツ部は、特定のアーティスト・事務所・イベントの公式サービスではありません。「いまどこ?」は自己申告制、参加コードは仲間内だけ。安心して推せる設計を大切にしています。</p>
+  </div>
+</footer>
+
+<div class="fixedCta">
+  <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+</div>
+
+</body>
+</html>
