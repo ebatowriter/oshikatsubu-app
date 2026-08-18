@@ -131,6 +131,14 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .clInner .tgSub { font-size: 13.5px; color: var(--sub); margin: 16px 0 30px; line-height: 2; }
 .closingPad { position: relative; padding: 0 16px; }
 @media (prefers-reduced-motion: reduce) { .sBgVid, .clVid { display: none; } .sBg { background: var(--gray); } .closing { background: var(--gray); } }
+/* ===== 創設部員(限定性) ===== */
+.founder { border: 2.5px solid var(--ink); border-radius: 22px; background: #fff; padding: 26px 22px; margin-top: 48px; box-shadow: var(--shadow-lg); position: relative; }
+.founderBadge { position: absolute; top: -14px; left: 20px; background: var(--pink); color: #fff; font-size: 11.5px; font-weight: 900; padding: 5px 14px; border-radius: 999px; letter-spacing: .06em; }
+.founder h3 { font-size: 20px; font-weight: 900; line-height: 1.6; margin-bottom: 12px; }
+.founder p { font-size: 13.5px; color: var(--sub); line-height: 2; }
+.founder p strong { color: var(--ink); }
+.founderNote { font-size: 11px; color: var(--faint); margin-top: 12px; }
+
 /* ===== 機能デモ(タップ→ズーム動画) ===== */
 .demoHint { display: none; margin-top: 10px; font-size: 12px; font-weight: 900; color: var(--pink); }
 .demoReady .card[data-demo] { cursor: pointer; }
@@ -416,6 +424,14 @@ footer a { margin-right: 16px; }
     <li>人見知りだけど、推し仲間はほしい人</li>
   </ul>
   <p class="members">「人見知りでも、部員同士なら話しかけてOK。」が部のルール。部員証が、話しかけていい免罪符になります。</p>
+
+  <div class="founder">
+    <span class="founderBadge">オープン記念</span>
+    <h3>年内に入部した部員は、<br>「創設部員」。</h3>
+    <p>2027年1月、部室に有料の<strong>コミュニティ機能</strong>が生まれます。年内に入部した創設部員には、<strong>特別な優待</strong>を用意します。今入ると、ずっと特別。</p>
+    <p style="margin-top:10px"><strong>そして、記録機能はこれからもずっと無料。</strong>この約束は変わりません。</p>
+    <p class="founderNote">※優待の内容は準備が整い次第、部員のみなさんに最初にお知らせします。</p>
+  </div>
 </section>
 
 <!-- ============ A: 行動(3ステップ→CTA) ============ -->
@@ -508,7 +524,7 @@ footer a { margin-right: 16px; }
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!("IntersectionObserver" in window)) return;
   document.documentElement.classList.add("js");
-  var sel = "h2, .card, .phones, .phoneNote, .chips, .scene, .checkList li, .steps .step, .comment, .proof, .offerYen, .offerNote, .offerSub, .members, .clInner, section > .wrap > .ctaBtn, .contrast, .lead";
+  var sel = "h2, .founder, .card, .phones, .phoneNote, .chips, .scene, .checkList li, .steps .step, .comment, .proof, .offerYen, .offerNote, .offerSub, .members, .clInner, section > .wrap > .ctaBtn, .contrast, .lead";
   var els = document.querySelectorAll(sel);
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
