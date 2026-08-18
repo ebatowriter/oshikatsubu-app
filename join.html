@@ -131,6 +131,24 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .clInner .tgSub { font-size: 13.5px; color: var(--sub); margin: 16px 0 30px; line-height: 2; }
 .closingPad { position: relative; padding: 0 16px; }
 @media (prefers-reduced-motion: reduce) { .sBgVid, .clVid { display: none; } .sBg { background: var(--gray); } .closing { background: var(--gray); } }
+/* ===== 機能デモ(タップ→ズーム動画) ===== */
+.demoHint { display: none; margin-top: 10px; font-size: 12px; font-weight: 900; color: var(--pink); }
+.demoReady .card[data-demo] { cursor: pointer; }
+.demoReady .demoHint { display: block; }
+.demoModal { position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center; background: rgba(15,15,20,.82); padding: 24px; }
+.demoModal.open { display: flex; }
+.demoBox { width: min(300px, 78vw); background: #fff; border: 7px solid var(--ink); border-radius: 34px; overflow: hidden; box-shadow: var(--shadow-lg); transform: scale(.82); opacity: 0; transition: transform .3s cubic-bezier(.2,.8,.3,1), opacity .3s; }
+.demoModal.open .demoBox { transform: scale(1); opacity: 1; }
+.demoBox video { width: 100%; display: block; aspect-ratio: 9/19; object-fit: cover; background: #000; }
+.demoTitle { text-align: center; font-size: 13.5px; font-weight: 900; padding: 12px; }
+.demoClose { position: absolute; top: 18px; right: 18px; width: 42px; height: 42px; border-radius: 50%; background: #fff; color: var(--ink); font-size: 20px; font-weight: 900; border: none; box-shadow: var(--shadow); }
+
+/* ===== その他の機能一覧 ===== */
+.moreBtn { display: block; width: 100%; margin-top: 26px; background: #fff; border: 2px solid var(--ink); border-radius: 999px; padding: 14px; font-size: 14.5px; font-weight: 900; color: var(--ink); font-family: inherit; }
+.moreList { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.moreList span { background: #fff; border: 1.5px solid var(--line); border-radius: 12px; padding: 11px 12px; font-size: 12px; font-weight: 700; color: var(--sub); box-shadow: var(--shadow); }
+.moreList .jp { color: var(--pink); font-size: 10px; font-weight: 900; }
+
 /* ===== ③スクロール出現(ふわっ) ===== */
 .js .rv { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1); }
 .js .rv.in { opacity: 1; transform: none; }
@@ -311,25 +329,29 @@ footer a { margin-right: 16px; }
   <p class="lead">セトリも、チェキも、使った額も、置き場所はぜんぶここ。</p>
   <p class="contrast">家計簿でも、日記でも、<br>SNSでもない。<br><em>推し活のための、部室です。</em></p>
 
-  <div class="card pink">
+  <div class="card pink" data-demo="money">
     <span class="tag pink">おかね</span>
     <h3>使った額が、愛の総量になる</h3>
     <p>CD・遠征・グッズ。記録すれば、今年いくら使ったかがひと目でわかります。</p>
+    <p class="demoHint">▶ タップで実際の画面を見る</p>
   </div>
-  <div class="card blue">
+  <div class="card blue" data-demo="kiroku">
     <span class="tag blue">記録</span>
     <h3>現場とトークを、一生の記録に</h3>
     <p>参戦したライブも、レーンで話した数十秒も。未来の現場はカウントダウンに。</p>
+    <p class="demoHint">▶ タップで実際の画面を見る</p>
   </div>
-  <div class="card mint">
+  <div class="card mint" data-demo="lottery">
     <span class="tag mint">抽選</span>
     <h3>締切と結果を、ひと目で</h3>
     <p>申込の締切順に並ぶから、うっかり忘れがなくなります。</p>
+    <p class="demoHint">▶ タップで実際の画面を見る</p>
   </div>
-  <div class="card pur">
+  <div class="card pur" data-demo="nakama">
     <span class="tag pur">仲間</span>
     <h3>同じ現場の部員が、見える</h3>
     <p>チェックインすると、いま同じ現場にいる部員がわかります。人見知りでも、部員同士なら話しかけてOK。</p>
+    <p class="demoHint">▶ タップで実際の画面を見る</p>
   </div>
 
   <div class="phones">
@@ -343,6 +365,26 @@ footer a { margin-right: 16px; }
     <div class="chip"><img loading="lazy" src="/lp/chip2.jpg" alt=""><span>おかね</span></div>
     <div class="chip"><img loading="lazy" src="/lp/chip3.jpg" alt=""><span>遠征マップ</span></div>
     <div class="chip"><img loading="lazy" src="/lp/chip4.jpg" alt=""><span>写真アルバム</span></div>
+  </div>
+
+  <button class="moreBtn" type="button" aria-expanded="false">その他の機能も見る</button>
+  <div class="moreList" hidden>
+    <span>今日の推し活運勢</span>
+    <span>今日の推し、この1枚</span>
+    <span>次の現場カウントダウン</span>
+    <span>参戦数・ループ数の集計</span>
+    <span>参戦カレンダーのXシェア</span>
+    <span>月イチの活動報告</span>
+    <span>遠征マップ</span>
+    <span>チェキ帳(棚・アルバム・3D)<span class="jp"> ジョイパス</span></span>
+    <span>ネタ帳(トークの台本)</span>
+    <span>特典会の半券メモ</span>
+    <span>写真アルバム</span>
+    <span>リンク集</span>
+    <span>ペンライト</span>
+    <span>グループとメンバー管理</span>
+    <span>チェックイン(同じ現場の部員)</span>
+    <span>記録の書き出し</span>
   </div>
   </div>
 </section>
@@ -409,10 +451,56 @@ footer a { margin-right: 16px; }
   </div>
 </footer>
 
+<div class="demoModal" role="dialog" aria-modal="true">
+  <button class="demoClose" type="button" aria-label="閉じる">×</button>
+  <div class="demoBox">
+    <video muted loop playsinline preload="none"></video>
+    <p class="demoTitle"></p>
+  </div>
+</div>
+
 <div class="fixedCta">
   <a class="ctaBtn" data-cta href="/">無料で入部する</a>
 </div>
 
+<script>
+/* 機能デモ: DEMO_READYがtrueかつ動画が存在する場合のみ起動 */
+(function () {
+  var DEMO_READY = false; /* ← 4本の画面録画を設置したらtrueへ */
+  var meta = { money: ["おかね——愛の総量", "/lp/demo_money.mp4"], kiroku: ["記録——現場とトーク", "/lp/demo_kiroku.mp4"], lottery: ["抽選——締切と結果", "/lp/demo_lottery.mp4"], nakama: ["仲間——チェックイン", "/lp/demo_nakama.mp4"] };
+  var modal = document.querySelector(".demoModal");
+  var vid = modal.querySelector("video");
+  var title = modal.querySelector(".demoTitle");
+  function close() { modal.classList.remove("open"); vid.pause(); vid.removeAttribute("src"); vid.load(); }
+  modal.addEventListener("click", function (e) { if (e.target === modal || e.target.classList.contains("demoClose")) close(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  if (!DEMO_READY) return;
+  document.body.classList.add("demoReady");
+  document.querySelectorAll(".card[data-demo]").forEach(function (card) {
+    card.addEventListener("click", function () {
+      var m = meta[card.getAttribute("data-demo")];
+      if (!m) return;
+      title.textContent = m[0];
+      vid.src = m[1];
+      modal.classList.add("open");
+      vid.play().catch(function () {});
+    });
+  });
+})();
+</script>
+<script>
+/* その他の機能一覧の開閉 */
+(function () {
+  var btn = document.querySelector(".moreBtn");
+  var list = document.querySelector(".moreList");
+  if (!btn || !list) return;
+  btn.addEventListener("click", function () {
+    var open = list.hasAttribute("hidden");
+    if (open) { list.removeAttribute("hidden"); btn.textContent = "閉じる"; btn.setAttribute("aria-expanded", "true"); }
+    else { list.setAttribute("hidden", ""); btn.textContent = "その他の機能も見る"; btn.setAttribute("aria-expanded", "false"); }
+  });
+})();
+</script>
 <script>
 /* ③スクロール出現: 主要ブロックにふわっと登場を付与 */
 (function () {
