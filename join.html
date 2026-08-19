@@ -131,6 +131,23 @@ h1 { font-size: 29px; font-weight: 900; line-height: 1.45; }
 .clInner .tgSub { font-size: 13.5px; color: var(--sub); margin: 16px 0 30px; line-height: 2; }
 .closingPad { position: relative; padding: 0 16px; }
 @media (prefers-reduced-motion: reduce) { .sBgVid, .clVid { display: none; } .sBg { background: var(--gray); } .closing { background: var(--gray); } }
+/* ===== あるある診断(タップでチェック) ===== */
+.checkList li { cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background .25s; border-radius: 12px; padding-left: 44px; padding-right: 8px; }
+.checkList li::before { content: "♥"; background: #fff; border: 2px solid var(--line); color: #D9D9E0; font-size: 12px; left: 8px; transition: all .25s; }
+.checkList li.on { background: #FFF0F5; }
+.checkList li.on::before { background: var(--pink); border-color: var(--pink); color: #fff; animation: stampPop .35s cubic-bezier(.2,.9,.3,1.4); }
+@keyframes stampPop { 0% { transform: scale(.4) rotate(-14deg); } 60% { transform: scale(1.25) rotate(4deg); } 100% { transform: scale(1) rotate(0); } }
+.ckHint { font-size: 12px; color: var(--faint); font-weight: 700; margin-top: 10px; }
+.verdict { position: relative; margin-top: 22px; background: #fff; border: 2.5px solid var(--pink); border-radius: 20px; padding: 22px 20px; text-align: center; box-shadow: var(--shadow-lg); overflow: visible; }
+.verdict[hidden] { display: none; }
+.verdict b { display: block; font-size: 17px; font-weight: 900; margin-bottom: 14px; }
+.verdict .ctaBtn { max-width: 280px; margin: 0 auto; padding: 14px; font-size: 15px; }
+.confetti { position: absolute; inset: 0; pointer-events: none; }
+.confetti i { position: absolute; top: 40%; left: 50%; width: 8px; height: 12px; border-radius: 2px; opacity: 0; }
+.confetti i:nth-child(odd) { border-radius: 50%; width: 8px; height: 8px; }
+.burst .confetti i { animation: cfl .9s ease-out forwards; }
+@keyframes cfl { 0% { opacity: 1; transform: translate(0,0) rotate(0); } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(220deg); } }
+
 /* ===== 創設部員(限定性) ===== */
 .founder { border: 2.5px solid var(--ink); border-radius: 22px; background: #fff; padding: 26px 22px; margin-top: 48px; box-shadow: var(--shadow-lg); position: relative; }
 .founderBadge { position: absolute; top: -14px; left: 20px; background: var(--pink); color: #fff; font-size: 11.5px; font-weight: 900; padding: 5px 14px; border-radius: 999px; letter-spacing: .06em; }
@@ -417,12 +434,18 @@ footer a { margin-right: 16px; }
 <!-- ============ N: 絞り込み ============ -->
 <section class="wrap" style="padding-top:140px">
   <h2>こんな人のための<br>アプリです。</h2>
-  <ul class="checkList">
+  <ul class="checkList" id="ckList">
     <li>現場に行くたび、思い出がSNSに流れて消えていく人</li>
     <li>積んだ枚数を、もう思い出せない人</li>
     <li>抽選の締切を、1回でも忘れたことがある人</li>
     <li>人見知りだけど、推し仲間はほしい人</li>
   </ul>
+  <p class="ckHint">▼ 当てはまるものを、タップしてみてください</p>
+  <div class="verdict" hidden>
+    <span class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <b id="vMsg">入部の素質、あります。</b>
+    <a class="ctaBtn" data-cta href="/">無料で入部する</a>
+  </div>
   <p class="members">「人見知りでも、部員同士なら話しかけてOK。」が部のルール。部員証が、話しかけていい免罪符になります。</p>
 
   <div class="founder">
@@ -502,6 +525,37 @@ footer a { margin-right: 16px; }
       modal.classList.add("open");
       vid.play().catch(function () {});
     });
+  });
+})();
+</script>
+<script>
+/* あるある診断: タップでチェック→判定+紙吹雪 */
+(function () {
+  var list = document.getElementById("ckList");
+  var verdict = document.querySelector(".verdict");
+  if (!list || !verdict) return;
+  var msg = document.getElementById("vMsg");
+  var colors = ["#F0326E", "#45B8F0", "#3FC99A", "#FFB03A", "#B79CE8", "#FFD84D"];
+  var pieces = verdict.querySelectorAll(".confetti i");
+  pieces.forEach(function (p, i) {
+    p.style.background = colors[i % colors.length];
+    p.style.setProperty("--dx", (Math.cos(i / pieces.length * 6.283) * (60 + (i % 3) * 30)) + "px");
+    p.style.setProperty("--dy", (-40 - (i % 4) * 26) + "px");
+  });
+  var prev = 0;
+  list.addEventListener("click", function (e) {
+    var li = e.target.closest("li");
+    if (!li) return;
+    li.classList.toggle("on");
+    var n = list.querySelectorAll("li.on").length;
+    if (n > 0) {
+      msg.textContent = n >= 3 ? "もう、部員みたいなものです。" : "入部の素質、あります。";
+      verdict.removeAttribute("hidden");
+      if (n > prev) { verdict.classList.remove("burst"); void verdict.offsetWidth; verdict.classList.add("burst"); }
+    } else {
+      verdict.setAttribute("hidden", "");
+    }
+    prev = n;
   });
 })();
 </script>
