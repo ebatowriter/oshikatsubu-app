@@ -382,25 +382,25 @@ footer a { margin-right: 16px; }
     <span class="tag pink">おかね</span>
     <h3>使った額が、愛の総量になる</h3>
     <p>CD・遠征・グッズ。記録すれば、今年いくら使ったかがひと目でわかります。</p>
-    <p class="demoHint">▶ タップで実際の画面を見る</p>
+    <p class="demoHint">▶ タップで詳しく見る</p>
   </div>
   <div class="card blue" data-demo="kiroku">
     <span class="tag blue">記録</span>
     <h3>現場とトークを、一生の記録に</h3>
     <p>参戦したライブも、レーンで話した数十秒も。未来の現場はカウントダウンに。</p>
-    <p class="demoHint">▶ タップで実際の画面を見る</p>
+    <p class="demoHint">▶ タップで詳しく見る</p>
   </div>
   <div class="card mint" data-demo="lottery">
     <span class="tag mint">抽選</span>
     <h3>締切と結果を、ひと目で</h3>
     <p>申込の締切順に並ぶから、うっかり忘れがなくなります。</p>
-    <p class="demoHint">▶ タップで実際の画面を見る</p>
+    <p class="demoHint">▶ タップで詳しく見る</p>
   </div>
   <div class="card pur" data-demo="nakama">
     <span class="tag pur">仲間</span>
     <h3>同じ現場の部員が、見える</h3>
     <p>チェックインすると、いま同じ現場にいる部員がわかります。人見知りでも、部員同士なら話しかけてOK。</p>
-    <p class="demoHint">▶ タップで実際の画面を見る</p>
+    <p class="demoHint">▶ タップで詳しく見る</p>
   </div>
 
   <div class="phones">
@@ -418,23 +418,28 @@ footer a { margin-right: 16px; }
 
   <button class="moreBtn" type="button" aria-expanded="false">その他の機能も見る</button>
   <div class="midCta"><a class="ctaBtn" data-cta href="/">無料で入部する</a><p class="ctaNote">¥0・メールだけ・1分ではじめられます</p></div>
-  <div class="moreList" hidden>
-    <span>今日の推し活運勢</span>
-    <span>今日の推し、この1枚</span>
-    <span>次の現場カウントダウン</span>
-    <span>参戦数・ループ数の集計</span>
-    <span>参戦カレンダーのXシェア</span>
-    <span>月イチの活動報告</span>
-    <span>遠征マップ</span>
-    <span>チェキ帳(棚・アルバム・3D)<span class="jp"> ジョイパス</span></span>
-    <span>ネタ帳(トークの台本)</span>
-    <span>特典会の半券メモ</span>
-    <span>写真アルバム</span>
-    <span>リンク集</span>
-    <span>ペンライト</span>
-    <span>グループとメンバー管理</span>
-    <span>チェックイン(同じ現場の部員)</span>
-    <span>記録の書き出し</span>
+  <div class="morePane" hidden>
+    <div class="featGrid">
+      <div class="featCard" data-feat="ticket"><img loading="lazy" src="/empty_ticket.webp" alt=""><b>参加券の管理</b><span>詳しく見る ▶</span></div>
+      <div class="featCard" data-feat="cheki"><img loading="lazy" src="/empty_cheki.webp" alt=""><b>チェキ帳<span class="jpTag">ジョイパス</span></b><span>詳しく見る ▶</span></div>
+      <div class="featCard" data-feat="photo"><img loading="lazy" src="/empty_photo.webp" alt=""><b>写真アルバム</b><span>詳しく見る ▶</span></div>
+      <div class="featCard" data-feat="links"><img loading="lazy" src="/empty_links.webp" alt=""><b>リンク集</b><span>詳しく見る ▶</span></div>
+      <div class="featCard" data-feat="talk"><img loading="lazy" src="/empty_talk.webp" alt=""><b>特典会トークの記録</b><span>詳しく見る ▶</span></div>
+      <div class="featCard" data-feat="group"><img loading="lazy" src="/empty_bushitsu.webp" alt=""><b>グループとメンバー</b><span>詳しく見る ▶</span></div>
+    </div>
+    <div class="pillList">
+      <span>今日の推し活運勢</span>
+      <span>今日の推し、この1枚</span>
+      <span>次の現場カウントダウン</span>
+      <span>参戦数・ループ数の集計</span>
+      <span>参戦カレンダーのXシェア</span>
+      <span>月イチの活動報告</span>
+      <span>遠征マップ</span>
+      <span>ネタ帳(トークの台本)</span>
+      <span>特典会の半券メモ</span>
+      <span>ペンライト</span>
+      <span>記録の書き出し</span>
+    </div>
   </div>
   </div>
 </section>
@@ -529,8 +534,11 @@ footer a { margin-right: 16px; }
 <div class="demoModal" role="dialog" aria-modal="true">
   <button class="demoClose" type="button" aria-label="閉じる">×</button>
   <div class="demoBox">
-    <video muted loop playsinline preload="none"></video>
+    <video muted loop playsinline preload="none" hidden></video>
+    <img class="demoShot" alt="" hidden>
     <p class="demoTitle"></p>
+    <p class="demoDesc"></p>
+    <p class="demoNote">※一部はイメージ画面です。実際のキャプチャに順次更新します。</p>
   </div>
 </div>
 
@@ -539,26 +547,37 @@ footer a { margin-right: 16px; }
 </div>
 
 <script>
-/* 機能デモ: DEMO_READYがtrueかつ動画が存在する場合のみ起動 */
+/* 機能モーダル: 全機能キャプチャ方式(画像。動画が用意できた機能はvideoを指定) */
 (function () {
-  var DEMO_READY = false; /* ← 4本の画面録画を設置したらtrueへ */
-  var meta = { money: ["おかね——愛の総量", "/lp/demo_money.mp4"], kiroku: ["記録——現場とトーク", "/lp/demo_kiroku.mp4"], lottery: ["抽選——締切と結果", "/lp/demo_lottery.mp4"], nakama: ["仲間——チェックイン", "/lp/demo_nakama.mp4"] };
+  var meta = {
+    money:  ["おかね——愛の総量", "/empty_money.webp", "CD・遠征・グッズを記録すると、今年いくら使ったかを集計。どんぶり勘定が「愛の総量」に変わります。", null],
+    kiroku: ["現場の記録", "/empty_genba.webp", "参戦したライブを日付・会場つきで記録。未来の日付で入れると、カウントダウンが始まります。", null],
+    lottery:["抽選の管理", "/empty_lottery.webp", "申込を登録すると締切順に自動で並びます。当選・落選の結果も残せます。", null],
+    nakama: ["チェックイン", "/empty_talk.webp", "現場にチェックインすると、同じ現場にいる部員がわかります。部員同士なら話しかけてOK。", null],
+    ticket: ["参加券の管理", "/empty_ticket.webp", "積んだ参加券をまとめて管理。特典会トークを記録すると、在庫が自動で減っていきます。", null],
+    cheki:  ["チェキ帳(ジョイパス)", "/lp/shot_cheki.jpg", "撮ったチェキを棚に並べて、めくれるアルバムに。棚の背景も選べます。", null],
+    photo:  ["写真アルバム", "/empty_photo.webp", "現場やトークの記録に添付した写真が、自動でアルバムに集まります。", null],
+    links:  ["リンク集", "/empty_links.webp", "推しの公式X・YouTube・通販サイトなど、よく見るページの入口をまとめられます。", null],
+    talk:   ["特典会トークの記録", "/empty_talk.webp", "何を話したか、推しが何て返したか、次に言うこと。レーンの数十秒を残せます。", null],
+    group:  ["グループとメンバー", "/empty_bushitsu.webp", "推しのグループとメンバーを自由に登録。ジャンルは問いません。", null]
+  };
   var modal = document.querySelector(".demoModal");
   var vid = modal.querySelector("video");
+  var shot = modal.querySelector(".demoShot");
   var title = modal.querySelector(".demoTitle");
+  var desc = modal.querySelector(".demoDesc");
   function close() { modal.classList.remove("open"); vid.pause(); vid.removeAttribute("src"); vid.load(); }
   modal.addEventListener("click", function (e) { if (e.target === modal || e.target.classList.contains("demoClose")) close(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
-  if (!DEMO_READY) return;
-  document.body.classList.add("demoReady");
-  document.querySelectorAll(".card[data-demo]").forEach(function (card) {
-    card.addEventListener("click", function () {
-      var m = meta[card.getAttribute("data-demo")];
+  document.querySelectorAll("[data-feat]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var m = meta[el.getAttribute("data-feat")];
       if (!m) return;
       title.textContent = m[0];
-      vid.src = m[1];
+      desc.textContent = m[2];
+      if (m[3]) { shot.setAttribute("hidden", ""); vid.removeAttribute("hidden"); vid.src = m[3]; vid.play().catch(function () {}); }
+      else { vid.setAttribute("hidden", ""); vid.pause(); shot.removeAttribute("hidden"); shot.src = m[1]; }
       modal.classList.add("open");
-      vid.play().catch(function () {});
     });
   });
 })();
@@ -598,7 +617,7 @@ footer a { margin-right: 16px; }
 /* その他の機能一覧の開閉 */
 (function () {
   var btn = document.querySelector(".moreBtn");
-  var list = document.querySelector(".moreList");
+  var list = document.querySelector(".morePane");
   if (!btn || !list) return;
   btn.addEventListener("click", function () {
     var open = list.hasAttribute("hidden");
